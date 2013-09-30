@@ -20,28 +20,28 @@
 	function afterHereMapLoad(map){
 		this.map = map;
 	}
-	asyncTest("loadInstagramData", function() {
-      expect(6);
-	  var url = HereMapsConstants.Instagram.apiUrl + '?lat=' + HereMapsConstants.InitialLocation.longitude + '&lng=' + HereMapsConstants.InitialLocation.latitude + '&client_id=' + HereMapsConstants.Instagram.client_id;
-      $.ajax({
-        url: url,
-        dataType: "jsonp",
-        type: "GET",
-        timeout: 5000
-      }).done(function(data) {
-        ok(true, "loaded");
-        ok(data.data.length > 1, "array size");
-        ok(data.meta.code, 200);
-        var c = data.data[0];
-        ok(c.location.latitude, "attr latitude");
-        ok(c.location.longitude, "attr longitude");
-        ok(c.user.id > 1, "attr user id is grater than 1");
-      }).fail(function(x, text, thrown) {
-        ok(false, "ajax failed: " + text);
-      }).always(function(){
-        start();
-      });
-    });	
+	asyncTest("loadInstagramData", function () {
+	    expect(6);
+	    var url = HereMapsConstants.Instagram.apiUrl + '?lat=' + HereMapsConstants.InitialLocation.longitude + '&lng=' + HereMapsConstants.InitialLocation.latitude + '&client_id=' + HereMapsConstants.Instagram.client_id;
+	    $.ajax({
+	        url: url,
+	        dataType: "jsonp",
+	        type: "GET",
+	        timeout: 5000
+	    }).done(function (data) {
+	        ok(true, "loaded");
+	        ok(data.data.length > 1, "array size");
+	        ok(data.meta.code, 200);
+	        var c = data.data[0];
+	        ok(c.location.latitude, "attr latitude");
+	        ok(c.location.longitude, "attr longitude");
+	        ok(c.user.id > 1, "attr user id is grater than 1");
+	    }).fail(function (x, text, thrown) {
+	        ok(false, "ajax failed: " + text);
+	    }).always(function () {
+	        start();
+	    });
+	});
 	</script>
 </head>
 <body>
