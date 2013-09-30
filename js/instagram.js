@@ -1,7 +1,7 @@
 (function (exports, ctx) {
     exports.Instagram = {
         loadPositions: function () {
-            var url = HereMapsConstants.Instagram.apiUrl + '?lat=' + HereMapsConstants.InitialLocation.longitude + '&lng=' + HereMapsConstants.InitialLocation.latitude + '&client_id=' + HereMapsConstants.Instagram.client_id;
+            var url = HereMapsConstants.Instagram.apiUrl + '?lat=' + HereMapsConstants.InitialLocation.longitude + '&lng=' + HereMapsConstants.InitialLocation.latitude + '&distance' + HereMapsConstants.InitialLocation.distance + '&client_id=' + HereMapsConstants.Instagram.client_id;
             $.ajax({
                 type: "GET",
                 url: url,

@@ -12,7 +12,8 @@
         InitialLocation: {
             longitude: 52.51,
             latitude: 13.4,
-            zoomLevel: 11
+            zoomLevel: 11,
+            distance: 1000
         },
 
         JSLibs: {
