@@ -21,7 +21,7 @@
 		this.map = map;
 	}
 	asyncTest("loadInstagramData", function () {
-	    expect(20);
+	    expect(6);
 	    var url = HereMapsConstants.Instagram.apiUrl + '?lat=' + HereMapsConstants.InitialLocation.longitude + '&lng=' + HereMapsConstants.InitialLocation.latitude + '&distance' + HereMapsConstants.InitialLocation.distance + '&client_id=' + HereMapsConstants.Instagram.client_id;
 	    $.ajax({
 	        url: url,
