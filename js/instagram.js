@@ -2,7 +2,6 @@
     exports.Instagram = {
         loadPositions: function () {
             var url = HereMapsConstants.Instagram.apiUrl + '?lat=' + HereMapsConstants.InitialLocation.longitude + '&lng=' + HereMapsConstants.InitialLocation.latitude + '&client_id=' + HereMapsConstants.Instagram.client_id;
-            console.log(url);
             $.ajax({
                 type: "GET",
                 url: url,
@@ -48,7 +47,7 @@
                 content: '<p>This example shows interaction between instagram api and here.com api.</p>' + '<p>Click or touch the marker to open its infoBubble.</p>' + '<p>by Milan Vasic</p>'
             });
             return noteContainer;
-        },
+        },	
         onXMLLoadFailed: function () {
             alert("An Error has occurred.");
         }

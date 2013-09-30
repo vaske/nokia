@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Check Instagram API</title>
+
+	<link rel="stylesheet" href="qunit.css" />
+	<script src="qunit.js"></script>
+	<script src="../js/hereAppIdAndToken.js"></script>
+	<script src="../js/jQl.min.js"></script>
+	<script type="text/javascript" src="../js/hereAsyncLoader.js"
+		id="HereMapsLoaderScript" 
+		data-params="maps,datarendering" 
+		data-map-container="mapContainer"
+		data-callback="afterHereMapLoad"  >
+	</script>
+	<script src="../js/instagram.js"></script>
+	<script type="text/javascript" charset="UTF-8" src="http://developer.here.com/apiexplorer/examples/templates/js/exampleHelpers.js"></script>
+	<script>
+	function afterHereMapLoad(map){
+		this.map = map;
+	}
+	asyncTest("loadInstagramData", function() {
+      expect(6);
+	  var url = HereMapsConstants.Instagram.apiUrl + '?lat=' + HereMapsConstants.InitialLocation.longitude + '&lng=' + HereMapsConstants.InitialLocation.latitude + '&client_id=' + HereMapsConstants.Instagram.client_id;
+      $.ajax({
+        url: url,
+        dataType: "jsonp",
+        type: "GET",
+        timeout: 5000
+      }).done(function(data) {
+        ok(true, "loaded");
+        ok(data.data.length > 1, "array size");
+        ok(data.meta.code, 200);
+        var c = data.data[0];
+        ok(c.location.latitude, "attr latitude");
+        ok(c.location.longitude, "attr longitude");
+        ok(c.user.id > 1, "attr user id is grater than 1");
+      }).fail(function(x, text, thrown) {
+        ok(false, "ajax failed: " + text);
+      }).always(function(){
+        start();
+      });
+    });	
+	</script>
+</head>
+<body>
+	<div id="qunit"></div>
+	<div id="mapContainer"></div>
+	<div id="uiContainer"></div>
+</body>
+</html>
