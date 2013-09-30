@@ -19,6 +19,7 @@
 			data-map-container="mapContainer"
 			data-callback="afterHereMapLoad"  >
 		</script>
+		<!-- Set up instagram interaction and render markers -->
 		<script type="text/javascript" src="js/instagram.js"></script>
 		
 		<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
@@ -31,15 +32,15 @@
 	<body>
 		<div id="mapContainer"></div>
 		<div id="uiContainer"></div>
-		<script type="text/javascript" id="exampleJsSource">
-		//<![CDATA[
-		function afterHereMapLoad(map){
-			this.map = map;
-			Instagram.loadPositions();
-			Instagram.notes();
-		}
+		<script type="text/javascript" id="appSource">
+			//<![CDATA[
+			function afterHereMapLoad(map){
+				this.map = map;
+				Instagram.loadPositions();
+				Instagram.notes();
+			}
 
-		//]]>
+			//]]>
 		</script>
 	</body>
 </html>
