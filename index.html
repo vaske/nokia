@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html> 
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=7; IE=EmulateIE9; IE=10" />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+		<title>Nokia Maps API integration with Instagram</title>
+		<!-- For scaling content for mobile devices, setting the viewport to the width of the device-->
+		<meta name=viewport content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+		<!-- Set up constants such as APP ID and token -->
+		<script type="text/javascript" src="js/hereAppIdAndToken.js"></script>
+		<!-- Bootstrap jQuery Library -->
+		<script type="text/javascript" src="js/jQl.min.js"></script>
+
+		<!-- Asynchronously the HERE Maps API for  JavaScript -->
+		<script type="text/javascript" src="js/hereAsyncLoader.js"
+			id="HereMapsLoaderScript" 
+			data-params="maps,datarendering" 
+			data-map-container="mapContainer"
+			data-callback="afterHereMapLoad"  >
+		</script>
+		<!-- Set up instagram interaction and render markers -->
+		<script type="text/javascript" src="js/instagram.js"></script>
+		
+		<link href="http://developer.here.com/html/css/main.css" rel="stylesheet" />
+		<!-- JavaScript for example container (NoteContainer & Logger)  -->
+		<script type="text/javascript" charset="UTF-8" src="http://developer.here.com/apiexplorer/examples/templates/js/exampleHelpers.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	</head>
+	<body>
+		<div id="mapContainer"></div>
+		<div id="uiContainer"></div>
+		<script type="text/javascript" id="appSource">
+			//<![CDATA[
+			function afterHereMapLoad(map){
+				this.map = map;
+				Instagram.loadPositions();
+				Instagram.notes();
+			}
+
+			//]]>
+		</script>
+	</body>
+</html>
